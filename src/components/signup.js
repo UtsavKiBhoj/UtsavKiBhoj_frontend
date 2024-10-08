@@ -99,7 +99,7 @@ const Signup = () => {
           <button type="submit" className="signup-button">
             Sign Up
           </button>
-          <p>Click here to <Link to='/login'>"login"</Link></p>
+          <p>Click here to <Link to='/login'>login!</Link></p>
         </form>
         {message && <p className="message">{message}</p>}
       </div>
