@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { registerUser } from '../services/api'; 
+import { registerUser } from '../../services/api'; 
 import './signup.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const [formData, setFormData] = useState({
-    role: '',
     name: '',
     email: '',
     password: '',
@@ -13,6 +12,8 @@ const Signup = () => {
     address: '',
   });
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,7 +23,8 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await registerUser(formData); 
+      const response = await registerUser(formData);
+      navigate("/") 
       setMessage(response.message);
     } catch (error) {
       setMessage(error.message || 'Signup failed');
@@ -34,18 +36,6 @@ const Signup = () => {
       <div className="signup-card">
         <h2>Create Your Account</h2>
         <form onSubmit={handleSubmit}>
-          <select
-            className="input-field"
-            name="role"
-            value={formData.role}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select Role</option>
-            <option value="1">Admin</option>
-            <option value="2">User</option>
-          </select>
-
           <input
             className="input-field"
             type="text"

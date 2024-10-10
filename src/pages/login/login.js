@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { loginUser } from '../services/api'; 
+import { Link, useNavigate } from 'react-router-dom';
+import { loginUser } from '../../services/api';
 import './login.css';
-import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +9,8 @@ const Login = () => {
     password: '',
   });
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,7 +20,8 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await loginUser(formData); 
+      const response = await loginUser(formData);
+      navigate("/") 
       setMessage(response.message);
     } catch (error) {
       setMessage(error.message || 'Login failed');
