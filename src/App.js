@@ -4,10 +4,13 @@ import PrivateRoute from "./PrivateRoute";
 import Signup from "./pages/signup/signup";
 import Login from "./pages/login/login";
 import Home from "./pages/home/home";
+import Navbar from "./components/navbar";
+import Footer from "./components/footer/footer";
 
 const App = () => {
   return (
     <Router>
+      <Navbar />
       <Routes>
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/signup" element={<Signup />} />
@@ -18,13 +21,9 @@ const App = () => {
           element={<PrivateRoute>{/* <Dashboard /> */}</PrivateRoute>}
         />
       </Routes>
+      <Footer />
     </Router>
   );
 };
-
-// // Optionally, you can create a Home component
-// const Home = () => {
-//   return <h1>Welcome to the App</h1>;
-// };
 
 export default App;
