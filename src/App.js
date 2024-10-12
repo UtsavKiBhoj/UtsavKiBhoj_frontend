@@ -4,7 +4,7 @@ import PrivateRoute from "./PrivateRoute";
 import Signup from "./pages/signup/signup";
 import Login from "./pages/login/login";
 import Home from "./pages/home/home";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 import Footer from "./components/footer/footer";
 
 const App = () => {

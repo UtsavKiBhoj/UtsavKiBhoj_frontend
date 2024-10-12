@@ -3,46 +3,51 @@ body, html {
     padding: 0;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
+    width: 100%;
+    overflow-x: hidden;
   }
   
-  /* Navbar Styles */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: #333;
-    color: white;
-    position: sticky; /* Makes the navbar sticky */
-    top: 0; /* Sticks to the top */
-    z-index: 1000; /* Ensures it stays on top of other content */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
-  }
-  
-  .navbar-logo {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .navbar-links {
-    list-style: none;
-    display: flex;
-  }
-  
-  .navbar-links li {
-    margin-left: 20px;
-  }
-  
-  .navbar-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-  }
-  
-  .navbar-links a:hover {
-    color: #ddd;
-  }
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #333;
+  color: white;
+  position: sticky; /* Makes the navbar sticky */
+  top: 0; /* Sticks to the top */
+  z-index: 1000; /* Ensures it stays on top of other content */
+  width: 100%; /* Ensures the navbar covers the full width */
+  box-sizing: border-box; /* Includes padding in width calculation */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+}
+
+.navbar-logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+}
+
+.navbar-links li {
+  margin-left: 20px;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.navbar-links a:hover {
+  color: #ddd;
+}
+
   
   /* Banner Styles */
   .banner {
@@ -51,8 +56,8 @@ body, html {
   }
   
   .banner-image {
-    width: 100%;
-    height: auto;
+    width: 230vh;
+    height: 80vh;
   }
   
   .banner-text {
@@ -66,7 +71,7 @@ body, html {
   
   .banner-text h1 {
     font-size: 48px; /* Adjust the size as needed */
-    background: linear-gradient(to right, brown 42%, rgb(73, 157, 185) 50%);
+    background: linear-gradient(to right, brown 51.5%, rgb(73, 157, 185) 50%);
     -webkit-background-clip: text; /* Clips the background to the text */
     -webkit-text-fill-color: transparent; /* Makes the text color transparent */
     text-align: center; /* Center-aligns the text */
@@ -74,52 +79,6 @@ body, html {
   
   .banner-text p {
     font-size: 24px;
-  }
-  
-  /* Three Images Section */
-  .three-images-section {
-    padding: 50px 0;
-    background-color: #f4f4f4;
-  }
-  
-  .image-grid {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .image-item {
-    width: 30%;
-    padding: 10px;
-  }
-  
-  .image-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* About Us Section */
-  .about-us-section {
-    padding: 60px 30px;
-    background-color: #fff;
-    text-align: center;
-  }
-  
-  .about-us-section h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-  }
-  
-  .about-us-section p {
-    font-size: 18px;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto;
-    color: #666;
   }
   
   
