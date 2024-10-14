@@ -1,5 +1,5 @@
 import React from 'react'
-import "../home/home.css"
+import "../landingPage/LandingPage.css"
 
 const BannerImg = () => {
   return (

@@ -15,12 +15,12 @@ body, html {
   padding: 15px 30px;
   background-color: #333;
   color: white;
-  position: sticky; /* Makes the navbar sticky */
-  top: 0; /* Sticks to the top */
-  z-index: 1000; /* Ensures it stays on top of other content */
-  width: 100%; /* Ensures the navbar covers the full width */
-  box-sizing: border-box; /* Includes padding in width calculation */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+  position: sticky; 
+  top: 0; 
+  z-index: 1000; 
+  width: 100%; 
+  box-sizing: border-box; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
 .navbar-logo {

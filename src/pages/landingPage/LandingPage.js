@@ -1,10 +1,10 @@
 import React from "react";
-import "./home.css"; // Ensure the CSS is properly linked
+import "./LandingPage.css"; // Ensure the CSS is properly linked
 import NgoServices from "../ngoServices/ngoServices";
 import AboutUsNgo from "../aboutUsNgo/aboutUsNgo";
 import BannerImg from "../bannerImg/BannerImg";
 
-const Home = () => {
+const LandingPage = () => {
   return (
     <div className="home-container">
 
@@ -23,4 +23,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default LandingPage;
