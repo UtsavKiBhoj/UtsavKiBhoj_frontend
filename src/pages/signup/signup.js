@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { registerUser } from '../../services/api'; 
 import './signup.css';
 import { Link, useNavigate } from 'react-router-dom';
@@ -19,6 +19,15 @@ const Signup = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  useEffect(() => {
+    // Check if the user is logged in
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+      // If the user is logged in, redirect to the home page
+      navigate('/');
+    }
+  }, [navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

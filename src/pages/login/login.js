@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../../services/api';
 import './login.css';
@@ -17,14 +17,23 @@ const Login = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  useEffect(() => {
+    // Check if the user is logged in
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+      // If the user is logged in, redirect to the home page
+      navigate('/');
+    }
+  }, [navigate]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await loginUser(formData);
       localStorage.setItem('accessToken', response.access_token);
       localStorage.setItem('refreshToken', response.refresh_token);
-      navigate("/") 
-      setMessage(response.message);
+      // navigate("/")
+      window.location.href="/";
     } catch (error) {
       setMessage(error.message || 'Login failed');
     }
