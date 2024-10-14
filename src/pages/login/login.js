@@ -21,6 +21,8 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await loginUser(formData);
+      localStorage.setItem('accessToken', response.access_token);
+      localStorage.setItem('refreshToken', response.refresh_token);
       navigate("/") 
       setMessage(response.message);
     } catch (error) {
