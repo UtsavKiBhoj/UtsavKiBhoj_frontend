@@ -6,6 +6,7 @@ import Login from "./pages/login/login";
 import Navbar from "./components/Navbar";
 import Footer from "./components/footer/footer";
 import LandingPage from "./pages/landingPage/LandingPage";
+import UserProfile from "./pages/userProfile/UserProfile";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<LandingPage />} />
+        <Route path="/userprofile" element={<PrivateRoute>{<UserProfile/>}</PrivateRoute>} />
         <Route
           path="/dashboard"
           element={<PrivateRoute>{/* <Dashboard /> */}</PrivateRoute>}

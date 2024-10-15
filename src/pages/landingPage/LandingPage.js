@@ -7,18 +7,16 @@ import BannerImg from "../bannerImg/BannerImg";
 const LandingPage = () => {
   return (
     <div className="home-container">
-
       {/* Banner Section */}
-      <BannerImg/>
+      <BannerImg />
 
       {/* Additional Sections */}
-      
 
       {/* Images Section */}
-      <NgoServices/>
-      
+      <NgoServices />
+
       {/* About Us Section */}
-      <AboutUsNgo/>
+      <AboutUsNgo />
     </div>
   );
 };
