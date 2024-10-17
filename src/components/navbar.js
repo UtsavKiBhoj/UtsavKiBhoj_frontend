@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../pages/landingPage/LandingPage.css";
+import "./navbar.css"
 import { useNavigate } from "react-router-dom";
 import { logoutUser } from "../services/api";
 import { FaUserCircle } from "react-icons/fa";

@@ -1,0 +1,151 @@
+/* Navbar Profile */
+.navbar-profile {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  /* Tooltip Container */
+  .tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Tooltip Text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 60px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: 125%; /* Position the tooltip below */
+    left: 50%;
+    margin-left: -30px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Show Tooltip on Hover */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /* Profile Dropdown Menu */
+  .profile-dropdown {
+    position: absolute;
+    color: rgb(220, 219, 219);
+    right: 0;
+    top: 40px;
+    background-color: rgb(142, 135, 135);
+    border: 1px solid #0b0a0a;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  /* Profile Dropdown List */
+  .profile-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Profile Dropdown Items */
+  .profile-dropdown li {
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
+  /* Hover Effect for Dropdown Items */
+  .profile-dropdown li:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Profile Icon */
+  .profile-icon {
+    color: #555;
+    cursor: pointer;
+  }
+  
+  /* Media Queries for Full Responsiveness */
+  
+  /* For Larger Screens (Desktops, above 1200px) */
+  @media (min-width: 1200px) {
+    .navbar-profile {
+      font-size: 16px; /* Adjust font size for large screens */
+    }
+    .profile-dropdown {
+      top: 45px;
+      padding: 12px;
+    }
+    .profile-dropdown li {
+      padding: 10px 14px;
+    }
+  }
+  
+  /* For Medium Screens (Tablets, between 768px and 1200px) */
+  @media (max-width: 1200px) and (min-width: 768px) {
+    .navbar-profile {
+      font-size: 14px; /* Slightly smaller text for medium screens */
+    }
+    .profile-dropdown {
+      top: 40px;
+      padding: 10px;
+    }
+    .profile-dropdown li {
+      padding: 8px 12px;
+    }
+  }
+  
+  /* For Small Screens (Mobile, under 768px) */
+  @media (max-width: 768px) {
+    .navbar-profile {
+      font-size: 12px; /* Smaller text for mobile */
+    }
+  
+    .tooltip .tooltiptext {
+      width: 80px; /* Slightly wider tooltip for mobile */
+      margin-left: -40px;
+    }
+  
+    .profile-dropdown {
+      top: 35px;
+      right: 10px; /* Adjust right alignment for mobile */
+      width: 160px; /* Adjust width to fit mobile screens */
+      padding: 8px;
+    }
+  
+    .profile-dropdown li {
+      padding: 6px 10px; /* Smaller padding for mobile */
+    }
+  
+    .profile-icon {
+      font-size: 18px; /* Larger icon size for easier touch */
+    }
+  }
+  
+  /* For Extra Small Screens (Mobile under 480px) */
+  @media (max-width: 480px) {
+    .navbar-profile {
+      font-size: 10px; /* Smaller text for extra small screens */
+    }
+  
+    .profile-dropdown {
+      top: 30px;
+      right: 5px; /* Further adjust for small devices */
+      width: 150px;
+      padding: 6px;
+    }
+  
+    .profile-dropdown li {
+      padding: 5px 8px;
+    }
+  
+    .profile-icon {
+      font-size: 16px; /* Adjust icon size further for small screens */
+    }
+  }
