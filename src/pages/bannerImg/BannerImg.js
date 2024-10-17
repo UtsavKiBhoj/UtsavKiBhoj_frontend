@@ -11,7 +11,6 @@ const BannerImg = () => {
         />
         <div className="banner-text">
           <h1>Welcome to Our Website UtsavKiBhoj</h1>
-          <p></p>
         </div>
       </div>
   )

@@ -28,7 +28,7 @@ const NgoServices = () => {
             <p className="image-description">Community Event Support</p>
           </div>
         </div>
-      </section>
+    </section>
   )
 }
 
