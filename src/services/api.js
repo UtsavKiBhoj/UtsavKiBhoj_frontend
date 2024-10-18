@@ -128,7 +128,7 @@ export const forgetPassword = async (user) => {
 // Reset Password API call
 export const resetPassword = async (user, uid, token) => {
     try {
-      const response = await api.post(`/user/reset-password/${uid}/${token}/`, {
+      const response = await api.post(`user/reset-password/${uid}/${token}/`, {
         password: user.password,
       });
       if (response.status === 200) {
@@ -136,5 +136,40 @@ export const resetPassword = async (user, uid, token) => {
       }
     } catch (err) {
       throw err.response ? err.response.data : { message: "Something went wrong" };
+    }
+  };
+
+// Event details form APIs
+// Event creation API
+export const createEvent = async (eventData) => {
+    try {
+      const response = await axios.post('event/Create-form/', eventData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (response.status === 200) {
+        return response.data;
+      }
+    } catch (err) {
+      throw err.response ? err.response.data : { message: 'Something went wrong with creating the event' };
+    }
+  };
+  
+  // Location creation API
+  export const createLocation = async (locationData) => {
+    try {
+      const response = await axios.post('/api/event-locations/', locationData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (response.status === 200) {
+        return response.data;
+      }
+    } catch (err) {
+      throw err.response ? err.response.data : { message: 'Something went wrong with creating the location' };
     }
   };

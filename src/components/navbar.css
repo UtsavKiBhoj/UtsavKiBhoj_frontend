@@ -70,6 +70,19 @@
     color: #555;
     cursor: pointer;
   }
+
+  .event-form-button {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .event-form-button:hover {
+    text-decoration: underline; /* Add hover effect */
+  }
   
   /* Media Queries for Full Responsiveness */
   

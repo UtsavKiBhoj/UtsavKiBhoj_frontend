@@ -39,6 +39,14 @@ const Navbar = () => {
     }
   };
 
+  const handleEventFormClick = () => {
+    if (isLoggedIn) {
+      navigate("event/Create-form/");
+    } else {
+      navigate("/login");
+    }
+  };
+
   const handleProfileClick = () => {
     if (isLoggedIn) {
       setShowDropdown(!showDropdown); // Toggle dropdown visibility
@@ -64,6 +72,11 @@ const Navbar = () => {
           </li>
           <li>
             <a href="#contact">Contact</a>
+          </li>
+          <li>
+            <button onClick={handleEventFormClick} className="event-form-button">
+              Event Form
+            </button>
           </li>
 
           {/* Show Logout button only if the user is logged in */}
