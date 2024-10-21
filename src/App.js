@@ -10,6 +10,7 @@ import UserProfile from "./pages/userProfile/UserProfile";
 import ForgotPassword from "./pages/forgetPassword/ForgotPassword";
 import ResetPassword from "./pages/resetPassword/ResetPassword";
 import EventDetailForm from "./pages/eventPages/eventForm/EventDetailForm";
+import EventDetails from "./pages/eventsDetail/EventDetails";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/dashboard" element={<PrivateRoute>{/* <Dashboard /> */}</PrivateRoute>}/>
         <Route path="/forget-password"element={<PrivateRoute>{<ForgotPassword />}</PrivateRoute>}/>
         <Route path="event/Create-form/"element={<PrivateRoute>{<EventDetailForm/>}</PrivateRoute>}/>
+        <Route path="event/list/"element={<PrivateRoute>{<EventDetails/>}</PrivateRoute>}/>
       </Routes>
       <Footer />
     </Router>

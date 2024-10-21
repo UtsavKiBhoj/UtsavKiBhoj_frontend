@@ -63,7 +63,7 @@ export const fetchUserData = async () => {
     // Extract user_id from token payload
     const decodedToken = jwtDecode(accessToken);
     const userId = decodedToken.user_id;
-    console.log("userId---------fetchUserData------------userId", userId);
+    // console.log("userId---------fetchUserData------------userId", userId);
 
     const config = {
       headers: {
@@ -142,8 +142,16 @@ export const resetPassword = async (user, uid, token) => {
 // Event details form APIs
 // Event creation API
 export const createEvent = async (eventData) => {
+  // console.log("eventData---------------", eventData.event_id )
+  console.log("eventData ot---------------", eventData )
     try {
-      const response = await axios.post('event/Create-form/', eventData, {
+        const accessToken = localStorage.getItem("accessToken");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      };
+      const response = await api.post('event/Create-form/', eventData, config, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -159,8 +167,16 @@ export const createEvent = async (eventData) => {
   
   // Location creation API
   export const createLocation = async (locationData) => {
-    try {
-      const response = await axios.post('/api/event-locations/', locationData, {
+    console.log("eventLocation000---------------", locationData )
+  console.log("eventLocation 123---------------", locationData.location_id )
+      try {
+      const accessToken = localStorage.getItem("accessToken");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      };
+      const response = await api.post('event/event-locations/', locationData, config, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -171,5 +187,30 @@ export const createEvent = async (eventData) => {
       }
     } catch (err) {
       throw err.response ? err.response.data : { message: 'Something went wrong with creating the location' };
+    }
+  };
+
+
+  // Event list API
+  export const fetchEventsList = async () => {
+      try {
+      const accessToken = localStorage.getItem("accessToken");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      };
+      const response = await api.get('event/list/', config, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      // console.log("000000000000000000000000",response)
+      console.log("-------------------------",response.data)
+      if (response.status === 200) {
+        return response.data;
+      }
+    } catch (err) {
+      throw err.response ? err.response.data : { message: 'Something went wrong to show the event details' };
     }
   };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createEvent, createLocation } from "../../../services/api";
-import "./eventdetailsform.css"
+import "./eventdetailsform.css";
 
 const EventDetailForm = () => {
   const [eventData, setEventData] = useState({
@@ -9,11 +9,14 @@ const EventDetailForm = () => {
     date: "",
   });
 
+  console.log("eventData-----------------dd", eventData);
+  console.log("eventData-----------------dd", eventData.user_id);
+
   const [locationDetails, setLocationDetails] = useState({
     location_name: "",
     address: "",
-    latitude: "",
-    longitude: "",
+    landmark: "",
+    pin_code: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -21,9 +24,7 @@ const EventDetailForm = () => {
   const [successMessage, setSuccessMessage] = useState("");
 
   const handleEventChange = (e) => {
-    setEventData({
-      ...eventData,
-      [e.target.name]: e.target.value,
+    setEventData({eventData, [e.target.name]: e.target.value,
     });
   };
 
@@ -41,27 +42,29 @@ const EventDetailForm = () => {
     setSuccessMessage("");
 
     try {
-      // First, create the event
+      // Step 1: First, create the event
       const eventResponse = await createEvent(eventData);
+      console.log("eventData--eventDetailForm.js-------------", eventData)
+      console.log("Event eventResponse:-------------", eventResponse);
 
-      // Now create the location, passing the event_id from the eventResponse
+      if (!eventResponse.event_id) {
+        throw new Error("Event creation failed. No event ID returned.");
+      }
+
+      // Step 2: Now create the location, passing the event_id from the eventResponse
       const locationData = {
         ...locationDetails,
-        event: eventResponse.event_id, // Assuming the API returns event_id
+        event: eventResponse.event_id, // Pass event_id to location API
       };
       const locationResponse = await createLocation(locationData);
+      console.log("Location created successfully:------------", locationResponse);
 
+      // Show success message
       setSuccessMessage("Event and location created successfully!");
-      console.log(
-        "Event and location created:",
-        eventResponse,
-        locationResponse
-      );
     } catch (error) {
-      setErrorMessage(
-        error.message || "An error occurred while creating the event."
-      );
-      console.error("Error creating event:", error);
+      // Handle errors
+      setErrorMessage(error.message || "An error occurred while creating the event and location.");
+      console.error("Error creating event and location:", error);
     } finally {
       setLoading(false);
     }
@@ -128,29 +131,34 @@ const EventDetailForm = () => {
           />
         </label>
         <label className="event-label">
-          Latitude:
+          Landmark:
           <input
-            type="number"
-            name="latitude"
+            type="text"
+            name="landmark"
             className="event-input"
-            value={locationDetails.latitude}
+            value={locationDetails.landmark}
             onChange={handleLocationChange}
             required
           />
         </label>
         <label className="event-label">
-          Longitude:
+          Pin Code:
           <input
             type="number"
-            name="longitude"
+            name="pin_code"
             className="event-input"
-            value={locationDetails.longitude}
+            value={locationDetails.pin_code}
             onChange={handleLocationChange}
             required
           />
         </label>
 
-        <button type="submit" className="event-button">Create Event</button>
+        <button type="submit" className="event-button" disabled={loading}>
+          {loading ? "Creating..." : "Create Event"}
+        </button>
+
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        {successMessage && <p className="success-message">{successMessage}</p>}
       </form>
     </div>
   );
