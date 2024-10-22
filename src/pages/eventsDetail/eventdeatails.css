@@ -1,0 +1,98 @@
+/* EventDetails.css */
+.event-details {
+    max-width: 800px; /* Maximum width for larger screens */
+    margin: 0 auto; /* Centering the container */
+    padding: 20px; /* Padding around the content */
+    font-family: Arial, sans-serif; /* Font family */
+    background-color: #f9f9f9; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    position: relative; /* For absolute positioning of footer */
+  }
+  
+  .event-details h1 {
+    text-align: center; /* Center the heading */
+    color: #333; /* Heading color */
+  }
+  
+  /* Event Item Styles */
+  .event-item {
+    border: 1px solid #ddd; /* Border for event items */
+    border-radius: 5px; /* Rounded corners for items */
+    padding: 15px; /* Padding within each item */
+    margin: 10px 0; /* Margin between items */
+    background-color: #fff; /* White background for items */
+    transition: box-shadow 0.3s; /* Transition for shadow effect */
+  }
+  
+  .event-item:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+  }
+  
+  /* Link styles */
+  .view-details {
+    display: inline-block; /* Block display for link */
+    margin-top: 10px; /* Space above the link */
+    padding: 8px 15px; /* Padding for the link */
+    background-color: #007bff; /* Background color */
+    color: #fff; /* Text color */
+    text-decoration: none; /* No underline */
+    border-radius: 5px; /* Rounded corners */
+  }
+  
+  .view-details:hover {
+    background-color: #0056b3; /* Darker background on hover */
+  }
+  
+  /* Loading, Error, and No Events Message Styles */
+  .loading,
+  .error,
+  .no-events {
+    text-align: center; /* Center text */
+    padding: 20px; /* Padding around the messages */
+    font-size: 1.2em; /* Font size */
+    color: #555; /* Text color */
+    margin: 20px 0; /* Margin around the message */
+  }
+  
+  .no-events {
+    background-color: #ffe6e6; /* Light red background */
+    border: 1px solid #ffcccc; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    padding: 20px; /* Padding within the no events message */
+    margin-top: 20px; /* Margin above the no events message */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 600px) {
+    .event-details {
+      padding: 15px; /* Adjust padding for small screens */
+    }
+  
+    .event-item {
+      padding: 10px; /* Adjust padding for event items */
+    }
+  
+    .loading,
+    .error,
+    .no-events {
+      font-size: 1em; /* Smaller font size on small screens */
+    }
+  
+    .view-details {
+      padding: 6px 12px; /* Adjust padding for the button */
+    }
+  }
+  
+  /* Footer Styles */
+  .footer {
+    position: absolute; /* Fixed position at the bottom */
+    bottom: 0; /* Align to the bottom */
+    width: 100%; /* Full width */
+    padding: 15px; /* Padding for footer */
+    color: white; /* Footer text color */
+    text-align: center; /* Center text in footer */
+    margin-top: 20px; /* Space above footer */
+    margin-bottom: 0px;
+  }
+  
