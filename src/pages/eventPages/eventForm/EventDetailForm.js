@@ -10,7 +10,7 @@ const EventDetailForm = () => {
   });
 
   console.log("eventData-----------------dd", eventData);
-  console.log("eventData-----------------dd", eventData.user_id);
+  // console.log("eventData-----------------dd", eventData);
 
   const [locationDetails, setLocationDetails] = useState({
     location_name: "",
@@ -24,7 +24,7 @@ const EventDetailForm = () => {
   const [successMessage, setSuccessMessage] = useState("");
 
   const handleEventChange = (e) => {
-    setEventData({eventData, [e.target.name]: e.target.value,
+    setEventData({...eventData, [e.target.name]: e.target.value,
     });
   };
 

@@ -1,0 +1,144 @@
+/* EventDetails.css */
+.event-details {
+  max-width: 1200px; /* Adjusted width for better readability */
+  margin: 40px auto; /* Added top and bottom margin for space around the page */
+  padding: 40px 30px; /* Reduced padding for more compact layout */
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Clean font family */
+  background-color: #f7f7f7; /* Softer background color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Adjusted Title */
+.event-details h1 {
+  text-align: center;
+  color: #444;
+  font-size: 2.4rem; /* Slightly larger title */
+  margin-bottom: 35px; /* Reduced space below title */
+  font-weight: 700;
+}
+
+/* Event Item Styles */
+.event-item {
+  list-style: none;
+  border: 1px solid #e0e0e0; /* Light border for event items */
+  border-radius: 8px; /* Rounded corners */
+  padding: 25px; /* Adjusted padding for content */
+  margin: 20px 0; /* More space between items */
+  background-color: #fff;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px; /* Space between flex items */
+  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+}
+
+.event-item:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+  transform: scale(1.02); /* Slight scale-up on hover */
+}
+
+.event-item h2 {
+  font-size: 1.6rem; /* Slightly larger event name */
+  color: #444;
+  margin: 0;
+}
+
+.event-item p {
+  font-size: 1rem;
+  color: #666;
+  margin: 5px 0;
+}
+
+.event-item p strong {
+  color: #151618; /* Highlighted text for strong elements */
+}
+
+/* Adjusted Link styles */
+.view-details {
+  padding: 12px 25px;
+  background-color: #454a51;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.view-details:hover {
+  background-color: #0056b3;
+}
+
+/* Loading, Error, and No Events Message Styles */
+.loading,
+.error,
+.no-events {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2em;
+  color: #555;
+  margin: 20px 0;
+}
+
+.no-events {
+  background-color: #ffe6e6;
+  border: 1px solid #ffcccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Event Container */
+.event-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between event details */
+  background-color: #fff;
+  padding: 25px; /* Reduced padding for smaller containers */
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.event-container p {
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.event-container strong {
+  color: #007bff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .event-item {
+      flex-direction: column; /* Stack items vertically on smaller screens */
+      text-align: center;
+  }
+
+  .view-details {
+      margin-top: 10px;
+      width: 100%;
+  }
+
+  .event-container {
+      padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .event-details {
+      padding: 20px;
+  }
+
+  .event-item h2 {
+      font-size: 1.3rem;
+  }
+
+  .event-item p {
+      font-size: 0.9rem;
+  }
+
+  .view-details {
+      padding: 8px 16px;
+  }
+}

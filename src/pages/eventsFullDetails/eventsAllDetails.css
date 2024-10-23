@@ -1,0 +1,58 @@
+/* eventdetailpage.css */
+
+.event-detail-page {
+    background-color: beige;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .event-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .event-title {
+    font-size: 2.2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .event-details {
+    line-height: 1.8;
+    color: #555;
+  }
+  
+  .event-details p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+  }
+  
+  .event-details strong {
+    color: #333;
+  }
+  
+  .loading {
+    font-size: 1.5rem;
+    color: #999;
+    text-align: center;
+  }
+  
+  .error {
+    color: red;
+    text-align: center;
+  }
+  
+  .no-event {
+    font-size: 1.5rem;
+    color: #999;
+    text-align: center;
+  }
+  
