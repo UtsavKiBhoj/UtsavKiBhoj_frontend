@@ -49,7 +49,7 @@ export const logoutUser = async (refreshToken) => {
       { refreshToken: refreshToken },
       config
     );
-    return response.data;
+    return response;
   } catch (error) {
     throw error.response ? error.response.data : { message: "Network error" };
   }
@@ -205,7 +205,6 @@ export const createEvent = async (eventData) => {
           'Content-Type': 'application/json',
         },
       });
-      // console.log("000000000000000000000000",response)
       console.log("-------------------------",response.data)
       if (response.status === 200) {
         return response.data;

@@ -46,6 +46,13 @@ const Navbar = () => {
       navigate("/login");
     }
   };
+  const handleEventsList = () => {
+    if (isLoggedIn) {
+      navigate("/event");
+    } else {
+      navigate("/login");
+    }
+  };
 
   const handleProfileClick = () => {
     if (isLoggedIn) {
@@ -76,6 +83,11 @@ const Navbar = () => {
           <li>
             <button onClick={handleEventFormClick} className="event-form-button">
               Event Form
+            </button>
+          </li>
+          <li>
+            <button onClick={handleEventsList} className="event-form-button">
+              Events
             </button>
           </li>
 

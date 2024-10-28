@@ -11,6 +11,7 @@ import ForgotPassword from "./pages/forgetPassword/ForgotPassword";
 import ResetPassword from "./pages/resetPassword/ResetPassword";
 import EventDetailForm from "./pages/eventPages/eventForm/EventDetailForm";
 import EventDetails from "./pages/eventsDetail/EventDetails";
+import EventsAllDetails from "./pages/eventsFullDetails/EventsAllDetails";
 
 const App = () => {
   return (
@@ -21,12 +22,29 @@ const App = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/reset-password/:uid/:token" element={<ResetPassword/>} />
-        <Route path="/userprofile" element={<PrivateRoute>{<UserProfile/>}</PrivateRoute>} />
-        <Route path="/dashboard" element={<PrivateRoute>{/* <Dashboard /> */}</PrivateRoute>}/>
-        <Route path="/forget-password"element={<PrivateRoute>{<ForgotPassword />}</PrivateRoute>}/>
-        <Route path="event/Create-form/"element={<PrivateRoute>{<EventDetailForm/>}</PrivateRoute>}/>
-        <Route path="event/all-list/"element={<PrivateRoute>{<EventDetails/>}</PrivateRoute>}/>
+        <Route path="/reset-password/:uid/:token" element={<ResetPassword />} />
+        <Route
+          path="/userprofile"
+          element={<PrivateRoute>{<UserProfile />}</PrivateRoute>}
+        />
+        <Route
+          path="/dashboard"
+          element={<PrivateRoute>{/* <Dashboard /> */}</PrivateRoute>}
+        />
+        <Route
+          path="/forget-password"
+          element={<PrivateRoute>{<ForgotPassword />}</PrivateRoute>}
+        />
+        <Route
+          path="/event/Create-form/"
+          element={<PrivateRoute>{<EventDetailForm />}</PrivateRoute>}
+        />
+        <Route
+          path="/event/"
+          element={<PrivateRoute>{<EventDetails />}</PrivateRoute>}
+        />
+        <Route path="/event/:id" element={<PrivateRoute>{<EventsAllDetails />}</PrivateRoute>} />{" "}
+        {/* Individual event details */}
       </Routes>
       <Footer />
     </Router>

@@ -1,8 +1,8 @@
 // EventDetailPage.js
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'; // To get the event ID from the route
-import { fetchEventById } from '../../services/api'; // Fetch event by ID API
-import './eventdetailpage.css'; // Custom CSS for attractive styling
+import { fetchEventById } from '../../services/eventsAllApi'; // Fetch event by ID API
+import './eventsAllDetails.css'; // Custom CSS for attractive styling
 
 const EventsAllDetails = () => {
   const { id } = useParams(); // Getting the event ID from URL params
@@ -14,7 +14,8 @@ const EventsAllDetails = () => {
     const fetchEventDetails = async () => {
       try {
         const response = await fetchEventById(id); // Fetch the event details by ID
-        setEvent(response);
+        console.log()
+        setEvent("response----------fetchEventDetails------", response);
         setLoading(false);
       } catch (err) {
         setError('Failed to fetch event details.');
