@@ -12,6 +12,8 @@ import ResetPassword from "./pages/resetPassword/ResetPassword";
 import EventDetailForm from "./pages/eventPages/eventForm/EventDetailForm";
 import EventDetails from "./pages/eventsDetail/EventDetails";
 import EventsAllDetails from "./pages/eventsFullDetails/EventsAllDetails";
+import AboutUsNgo from "./pages/aboutUsNgo/aboutUsNgo";
+import NgoServices from "./pages/ngoServices/ngoServices";
 
 const App = () => {
   return (
@@ -20,6 +22,8 @@ const App = () => {
       <Routes>
         {/* <Route path="/" element={<LandingPage />} /> */}
         <Route path="/" element={<LandingPage />} />
+        <Route path="/about" element={<AboutUsNgo />} />
+        <Route path="/services" element={<NgoServices />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/reset-password/:uid/:token" element={<ResetPassword />} />
