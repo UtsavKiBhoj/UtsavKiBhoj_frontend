@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { loginUser } from '../../services/api';
-import './login.css';
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "../../services/api";
+import "./login.css";
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,10 +18,10 @@ const Login = () => {
 
   useEffect(() => {
     // Check if the user is logged in
-    const accessToken = localStorage.getItem('accessToken');
+    const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
       // If the user is logged in, redirect to the home page
-      navigate('/');
+      navigate("/");
     }
   }, [navigate]);
 
@@ -30,12 +29,12 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await loginUser(formData);
-      localStorage.setItem('accessToken', response.access_token);
-      localStorage.setItem('refreshToken', response.refresh_token);
+      localStorage.setItem("accessToken", response.access_token);
+      localStorage.setItem("refreshToken", response.refresh_token);
       // navigate("/")
-      window.location.href="/";
+      window.location.href = "/";
     } catch (error) {
-      setMessage(error.message || 'Login failed');
+      setMessage(error.message || "Login failed");
     }
   };
 
@@ -63,11 +62,13 @@ const Login = () => {
             onChange={handleChange}
             required
           />
-
           <button type="submit" className="login-button">
             Login
           </button>
-          <p>Don't have an account? Click here to <Link to='/signup'>sign up!</Link></p>
+          <p>
+            Don't have an account? Click here to{" "}
+            <Link to="/signup">sign up!</Link>
+          </p>
         </form>
         {message && <p className="message">{message}</p>}
       </div>

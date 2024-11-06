@@ -101,6 +101,30 @@ export const updateUserProfile = async (user) => {
   }
 };
 
+// Delete User Profile.
+export const deleteUserProfile = async (user) => {
+  try {
+    const accessToken = localStorage.getItem("accessToken");
+
+    // Extract user_id from token payload
+    const decodedToken = jwtDecode(accessToken);
+    const userId = decodedToken.user_id;
+    console.log("userId---------updateUserProfile------------userId", userId);
+
+    // Set the Authorization header
+    const config = {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    };
+    const response = await api.put(`user/delete/${userId}/`, user, config);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching user data:", JSON.stringify(error, null, 2));
+    throw error.response ? error.response.data : { message: "Network error" };
+  }
+};
+
 // Forget Password API.
 export const forgetPassword = async (user) => {
   try {
