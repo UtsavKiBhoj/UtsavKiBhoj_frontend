@@ -4,12 +4,12 @@ import "../eventForm/eventdetailsform.css";
 import { useEvent } from "../../../components/context/EventContext";
 
 const EventLocationForm = () => {
- // Get event ID from useContext state
+  // Get event ID from useContext state
   const { eventId } = useEvent();
-  console.log("eventId in location------------------------",eventId)
+  console.log("eventId in location------------------------", eventId);
 
-  console.log("eventId-------------------33 ",eventId)
-  
+  console.log("eventId-------------------33 ", eventId);
+
   const [locationDetails, setLocationDetails] = useState({
     location_name: "",
     address: "",
@@ -17,7 +17,7 @@ const EventLocationForm = () => {
     pin_code: "",
     event: eventId, // Initialize with event ID
   });
-  console.log("locationDetails--------------33",locationDetails)
+  console.log("locationDetails--------------33", locationDetails);
 
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -48,7 +48,6 @@ const EventLocationForm = () => {
   };
 
   return (
-    
     <div className="event-detail-form">
       <h1 className="event-title">Event Location</h1>
       <form onSubmit={handleSubmit}>

@@ -1,11 +1,10 @@
-// EventDetailPage.js
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'; // To get the event ID from the route
-import { fetchEventById } from '../../services/eventsAllApi'; // Fetch event by ID API
-import './eventsAllDetails.css'; // Custom CSS for attractive styling
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { fetchEventById } from "../../services/eventsAllApi";
+import "./eventsAllDetails.css";
 
 const EventsAllDetails = () => {
-  const { id } = useParams(); // Getting the event ID from URL params
+  const { id } = useParams();
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,12 +12,16 @@ const EventsAllDetails = () => {
   useEffect(() => {
     const fetchEventDetails = async () => {
       try {
-        const response = await fetchEventById(id); // Fetch the event details by ID
-        console.log()
-        setEvent("response----------fetchEventDetails------", response);
+        // Fetch the event details by ID
+        const response = await fetchEventById(id);
+        if (response) {
+          setEvent(response);
+        } else {
+          setError("Event data not found.");
+        }
         setLoading(false);
       } catch (err) {
-        setError('Failed to fetch event details.');
+        setError("Failed to fetch event details.");
         setLoading(false);
       }
     };
@@ -43,11 +46,24 @@ const EventsAllDetails = () => {
       <div className="event-container">
         <h1 className="event-title">{event.event_name}</h1>
         <div className="event-details">
-          <p><strong>Date:</strong> {new Date(event.date).toLocaleDateString()}</p>
-          <p><strong>Location:</strong> {event.location_name}</p>
-          <p><strong>Description:</strong> {event.description}</p>
-          <p><strong>Organizer Name:</strong> {event.organizer?.name}</p>
-          <p><strong>Organizer Email:</strong> {event.organizer?.email}</p>
+          <p>
+            <strong>Date:</strong> {new Date(event.date).toLocaleDateString()}
+          </p>
+          <p>
+            <strong>Location:</strong> {event.address}
+          </p>
+          <p>
+            <strong>Description:</strong> {event.description}
+          </p>
+          <p>
+            <strong>Organizer Name:</strong> {event.name}
+          </p>
+          <p>
+            <strong>Organizer Email:</strong> {event.email}
+          </p>
+          <p>
+            <strong>Phone:</strong> {event.phone}
+          </p>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { resetPassword } from "../../services/api";
 import { useParams } from "react-router-dom";
-import "./resetpassword.css"
+import "./resetpassword.css";
 
 const ResetPassword = ({ match }) => {
   const [password, setPassword] = useState("");
@@ -34,7 +34,9 @@ const ResetPassword = ({ match }) => {
               placeholder="Enter new password"
             />
           </div>
-          <button type="submit" className="submit-btn">Reset Password</button>
+          <button type="submit" className="submit-btn">
+            Reset Password
+          </button>
         </form>
       </div>
     </div>

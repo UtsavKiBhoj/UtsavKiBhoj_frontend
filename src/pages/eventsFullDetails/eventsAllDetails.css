@@ -1,58 +1,101 @@
 /* eventdetailpage.css */
 
 .event-detail-page {
-    background-color: beige;
-    padding: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
+  background-color: #f4f7fa;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+.event-container {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 700px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.event-title {
+  font-size: 2.4rem;
+  color: #333;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.event-details {
+  line-height: 1.8;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.event-details p {
+  margin: 15px 0;
+  font-size: 1.15rem;
+}
+
+.event-details strong {
+  color: #333;
+  font-weight: bold;
+}
+
+.event-details p:not(:first-child) {
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.loading,
+.error,
+.no-event {
+  font-size: 1.4rem;
+  color: #555;
+  text-align: center;
+  font-weight: 500;
+  padding: 20px;
+}
+
+.loading {
+  color: #ff9800;
+}
+
+.error {
+  color: #f44336;
+  font-size: 1.6rem;
+}
+
+.no-event {
+  color: #9e9e9e;
+}
+
+.event-container p,
+.event-container h1 {
+  margin: 10px 0;
+}
+
+/* For mobile responsiveness */
+@media screen and (max-width: 768px) {
   .event-container {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    max-width: 600px;
-    width: 100%;
+    padding: 25px;
   }
-  
+
   .event-title {
-    font-size: 2.2rem;
-    color: #333;
-    text-align: center;
+    font-size: 2rem;
     margin-bottom: 20px;
   }
-  
-  .event-details {
-    line-height: 1.8;
-    color: #555;
-  }
-  
+
   .event-details p {
-    font-size: 1.1rem;
-    margin: 10px 0;
+    font-size: 1rem;
   }
-  
-  .event-details strong {
-    color: #333;
-  }
-  
-  .loading {
-    font-size: 1.5rem;
-    color: #999;
-    text-align: center;
-  }
-  
-  .error {
-    color: red;
-    text-align: center;
-  }
-  
-  .no-event {
-    font-size: 1.5rem;
-    color: #999;
-    text-align: center;
-  }
-  
+}

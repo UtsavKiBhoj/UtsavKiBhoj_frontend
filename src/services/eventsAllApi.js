@@ -11,7 +11,7 @@ const api = axios.create({
   },
 });
 
-// Full Event Details page fetch API 
+// Full Event Details page fetch API
 export const fetchEventById = async (id) => {
   try {
     const accessToken = localStorage.getItem("accessToken");
@@ -22,11 +22,13 @@ export const fetchEventById = async (id) => {
     };
     const response = await api.get(`event/details/${id}`, config);
     if (response.status !== 200) {
-      throw new Error('Event not found');
+      throw new Error("Event not found");
     }
     return response.data;
   } catch (error) {
     console.error("Error fetching event:", error);
-    throw new Error(error.response ? error.response.data.message : 'An error occurred');
+    throw new Error(
+      error.response ? error.response.data.message : "An error occurred"
+    );
   }
 };

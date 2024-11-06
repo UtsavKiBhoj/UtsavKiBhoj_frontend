@@ -241,7 +241,6 @@ export const fetchEventsList = async () => {
         "Content-Type": "application/json",
       },
     });
-    console.log("-------------------------", response.data);
     if (response.status === 200) {
       return response.data;
     }

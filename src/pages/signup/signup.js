@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { registerUser } from '../../services/api'; 
-import './signup.css';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { registerUser } from "../../services/api";
+import "./signup.css";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    phone: '',
-    address: '',
+    name: "",
+    email: "",
+    password: "",
+    phone: "",
+    address: "",
   });
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,10 +21,10 @@ const Signup = () => {
 
   useEffect(() => {
     // Check if the user is logged in
-    const accessToken = localStorage.getItem('accessToken');
+    const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
       // If the user is logged in, redirect to the home page
-      navigate('/');
+      navigate("/");
     }
   }, [navigate]);
 
@@ -33,10 +32,10 @@ const Signup = () => {
     e.preventDefault();
     try {
       const response = await registerUser(formData);
-      navigate("/") 
+      navigate("/");
       setMessage(response.message);
     } catch (error) {
-      setMessage(error.message || 'Signup failed');
+      setMessage(error.message || "Signup failed");
     }
   };
 
@@ -98,7 +97,9 @@ const Signup = () => {
           <button type="submit" className="signup-button">
             Sign Up
           </button>
-          <p>Click here to <Link to='/login'>login!</Link></p>
+          <p>
+            Click here to <Link to="/login">login!</Link>
+          </p>
         </form>
         {message && <p className="message">{message}</p>}
       </div>

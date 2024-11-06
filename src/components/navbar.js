@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./navbar.css"
+import "./navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { logoutUser } from "../services/api";
 import { FaUserCircle } from "react-icons/fa";
@@ -81,7 +81,10 @@ const Navbar = () => {
             <Link to="/contact">Contact</Link>
           </li>
           <li>
-            <button onClick={handleEventFormClick} className="event-form-button">
+            <button
+              onClick={handleEventFormClick}
+              className="event-form-button"
+            >
               Event Form
             </button>
           </li>
