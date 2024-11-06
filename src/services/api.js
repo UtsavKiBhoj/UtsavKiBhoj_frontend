@@ -36,8 +36,6 @@ export const loginUser = async (credentials) => {
 export const logoutUser = async (refreshToken) => {
   try {
     const accessToken = localStorage.getItem("accessToken");
-    // const refreshToken = localStorage.getItem('refreshToken');
-    console.log("refreshToken------------------", refreshToken);
     // Set the Authorization header
     const config = {
       headers: {
@@ -58,13 +56,9 @@ export const logoutUser = async (refreshToken) => {
 export const fetchUserData = async () => {
   try {
     const accessToken = localStorage.getItem("accessToken");
-    console.log("accessToken--------------------", accessToken);
-
     // Extract user_id from token payload
     const decodedToken = jwtDecode(accessToken);
     const userId = decodedToken.user_id;
-    // console.log("userId---------fetchUserData------------userId", userId);
-
     const config = {
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -85,8 +79,6 @@ export const updateUserProfile = async (user) => {
     // Extract user_id from token payload
     const decodedToken = jwtDecode(accessToken);
     const userId = decodedToken.user_id;
-    console.log("userId---------updateUserProfile------------userId", userId);
-
     // Set the Authorization header
     const config = {
       headers: {
@@ -109,8 +101,6 @@ export const deleteUserProfile = async (user) => {
     // Extract user_id from token payload
     const decodedToken = jwtDecode(accessToken);
     const userId = decodedToken.user_id;
-    console.log("userId---------updateUserProfile------------userId", userId);
-
     // Set the Authorization header
     const config = {
       headers: {
@@ -168,8 +158,6 @@ export const resetPassword = async (user, uid, token) => {
 // Event details form APIs
 // Event creation API
 export const createEvent = async (eventData) => {
-  // console.log("eventData---------------", eventData.event_id )
-  console.log("eventData ot---------------", eventData);
   try {
     const accessToken = localStorage.getItem("accessToken");
     const config = {
@@ -183,8 +171,6 @@ export const createEvent = async (eventData) => {
         "Content-Type": "application/json",
       },
     });
-    console.log("Server response:", response);
-
     if (response.status === 200 || response.status === 201) {
       return response.data;
     }
@@ -197,8 +183,6 @@ export const createEvent = async (eventData) => {
 
 // Location creation API
 export const createLocation = async (locationData) => {
-  console.log("eventLocation000---------------", locationData);
-  console.log("eventLocation 123---------------", locationData.location_id);
   try {
     const accessToken = localStorage.getItem("accessToken");
     const config = {

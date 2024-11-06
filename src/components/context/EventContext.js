@@ -4,7 +4,7 @@ const EventContext = createContext();
 
 export const EventProvider = ({ children }) => {
   const [eventId, setEventId] = useState(null);
-  console.log("eventId in context------------------>>", eventId);
+  // console.log("eventId in context------------------>>", eventId);
 
   return (
     <EventContext.Provider value={{ eventId, setEventId }}>

@@ -5,16 +5,13 @@ import { logoutUser } from "../services/api";
 import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
-  const [showDropdown, setShowDropdown] = useState(false); // To toggle profile dropdown
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
+  const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
-
-  console.log(isLoggedIn);
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
-    setIsLoggedIn(!!accessToken); // Set to true if accessToken exists, otherwise false
-    console.log(isLoggedIn);
+    setIsLoggedIn(!!accessToken);
   }, []);
 
   const handleLogout = async () => {
@@ -56,9 +53,9 @@ const Navbar = () => {
 
   const handleProfileClick = () => {
     if (isLoggedIn) {
-      setShowDropdown(!showDropdown); // Toggle dropdown visibility
+      setShowDropdown(!showDropdown);
     } else {
-      navigate("/login"); // Redirect to login/signup page
+      navigate("/login");
     }
   };
 

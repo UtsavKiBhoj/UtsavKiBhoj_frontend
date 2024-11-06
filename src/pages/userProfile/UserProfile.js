@@ -5,7 +5,6 @@ import {
   updateUserProfile,
 } from "../../services/api";
 import "./userprofile.css";
-import { jwtDecode } from "jwt-decode";
 
 const UserProfile = () => {
   const [user, setUser] = useState({
@@ -19,8 +18,6 @@ const UserProfile = () => {
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
-      const decodedToken = jwtDecode(accessToken);
-      const userId = decodedToken.user_id;
 
       // Fetch user data and update state
       const getUserData = async () => {
