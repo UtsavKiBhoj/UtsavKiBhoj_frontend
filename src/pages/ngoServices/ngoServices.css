@@ -1,73 +1,128 @@
 /* Section Title */
 .section-title {
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 30px;
-    margin-top: -20px;
-    color: #333;
-  }
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  color: #333;
+}
 
+/* Three Images Section */
+.three-images-section {
+  padding: 50px 0;
+  background-color: #f4f4f4;
+}
 
-  /* Three Images Section */
-  .three-images-section {
-    padding: 50px 0;
-    background-color: #f4f4f4;
-  }
-  
+/* Image Grid - Default for larger screens */
+.image-grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Image Item */
+.image-item {
+  width: 30%;
+  padding: 40px;
+  text-align: center;
+}
+
+/* Image Styling */
+.image-item img {
+  width: 80%;
+  height: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for normal (zoom out) state */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect for Zoom In */
+.image-item:hover img {
+  cursor: pointer;
+  transform: scale(1.1); /* Zoom in */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Shadow when zoomed in */
+}
+
+/* Text below the images */
+.image-description {
+  margin-top: 50px;
+  font-size: 18px;
+  color: #555;
+}
+
+/* Responsive styles for large screens (desktop, above 1200px) */
+@media (min-width: 1200px) {
   .image-grid {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 1400px; /* Expand grid for larger screens */
+    justify-content: space-between;
   }
-  
+
   .image-item {
-    width: 30%;
-    padding: 10px;
+    width: 28%; /* Adjust width slightly for large screens */
+    padding: 40px;
   }
-  
-  .image-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .image-description {
+    font-size: 20px; /* Increase font size on larger screens */
   }
-  
-  /* Image Grid Styles */
+}
+
+/* Responsive styles for medium screens (tablets, between 768px and 1200px) */
+@media (max-width: 1200px) and (min-width: 768px) {
   .image-grid {
-    display: flex;
-    justify-content: center;
-    gap: 100px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 10px;
+    max-width: 100%;
+  }
+
+  .image-item {
+    width: 45%; /* Adjust width for tablets */
     padding: 20px;
   }
-  
-  .image-item {
-    text-align: center;
-  }
-  
-  .image-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Text below the images */
+
   .image-description {
-    margin-top: 10px;
-    font-size: 18px;
-    color: #555;
+    font-size: 18px; /* Maintain font size for medium screens */
   }
-  
-  /* Make the section responsive */
-  @media (max-width: 768px) {
-    .image-grid {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .image-item {
-      margin-bottom: 20px;
-    }
+}
+
+/* Responsive styles for small screens (mobile devices, under 768px) */
+@media (max-width: 768px) {
+  .image-grid {
+    flex-direction: column;
+    align-items: center;
   }
+
+  .image-item {
+    width: 90%; /* Full width for mobile */
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  .image-item img {
+    height: auto; /* Ensure proper resizing of images */
+  }
+
+  .image-description {
+    margin-top: 20px; /* Reduce margin for mobile */
+    font-size: 16px; /* Smaller text for mobile */
+  }
+}
+
+/* Additional Styles for Extra-Small Screens (under 480px) */
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 28px; /* Reduce title font size for very small screens */
+  }
+
+  .image-item {
+    width: 100%; /* Ensure full width usage on extra small screens */
+    padding: 8px;
+  }
+
+  .image-description {
+    font-size: 14px; /* Further reduce text size */
+  }
+}

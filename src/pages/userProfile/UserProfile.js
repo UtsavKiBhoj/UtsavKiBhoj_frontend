@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { fetchUserData, updateUserProfile } from "../../services/api";
-import "./userprofile.css"
+import {
+  deleteUserProfile,
+  fetchUserData,
+  updateUserProfile,
+} from "../../services/api";
+import "./userprofile.css";
 import { jwtDecode } from "jwt-decode";
 
 const UserProfile = () => {
@@ -45,10 +49,21 @@ const UserProfile = () => {
     }));
   };
 
+  const handleDelete = async (e) => {
+    // Delete user profile
+    e.preventDefault();
+    try {
+      await deleteUserProfile(user);
+    } catch (error) {
+      console.error("Error Deleting profile:", error);
+      alert("Failed to delete profile.");
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await updateUserProfile(user);  // Send updated user data to the backend
+      await updateUserProfile(user); // Send updated user data to the backend
       alert("Profile updated successfully!");
     } catch (error) {
       console.error("Error updating profile:", error);
@@ -99,7 +114,14 @@ const UserProfile = () => {
             required
           />
         </label>
-        <button type="submit">Update</button>
+        <div className="button-container">
+          <button type="submit" className="update-button">
+            Update
+          </button>
+          <button onClick={handleDelete} className="delete-button">
+            Delete Profile
+          </button>
+        </div>
       </form>
     </div>
   );

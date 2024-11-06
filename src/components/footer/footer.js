@@ -7,7 +7,9 @@ const Footer = () => {
       <div className="footer-content">
         {/* Left-aligned content */}
         <div className="footer-left">
-          <p>&copy; {new Date().getFullYear()} MyWebsite. All Rights Reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} UtsavKiBhoj. All Rights Reserved.
+          </p>
         </div>
 
         {/* Center-aligned links */}

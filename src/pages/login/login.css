@@ -1,81 +1,82 @@
-/* Login.css */
-
+/* Center the form and style it nicely */
 .login-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 100vh;
-    /* background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%); */
+    align-items: center;
+    height: 70vh;
+    background-color: #f9f9f9; /* Match signup background color */
+    padding: 50px;
+  }
+  
+  .login-card {
+    background-color: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-h2 {
-    color: black;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Consistent shadow with signup */
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .login-card h2 {
     margin-bottom: 20px;
     font-family: 'Arial', sans-serif;
-}
-
-.login-form {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-}
-
-.input-group {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input {
+    color: #333;
+  }
+  
+  /* Style input fields */
+  .input-field {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-}
-
-input:focus {
-    border-color: #4facfe;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box; /* Consistent box-sizing */
+  }
+  
+  .input-field:focus {
+    background-color: #eef2f7;
     outline: none;
-}
-
-.login-button {
+    border-color: #007bff; /* Blue outline on focus */
+  }
+  
+  /* Style the submit button */
+  .login-button {
     width: 100%;
-    padding: 10px;
+    padding: 10px 20px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-}
-
-.login-button:hover {
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-button:hover {
     background-color: #0056b3;
-}
-
-.error {
-    color: red;
-    margin-top: 10px;
-}
-
-.forgot-password {
-    margin-top: 10px;
-    text-align: center;
-    color: #333;
-    cursor: pointer;
-}
-
-.forgot-password:hover {
+  }
+  
+  .message {
+    margin-top: 1rem;
+    color: #e63946;
+    font-weight: bold;
+  }
+  
+  /* Link styling */
+  .login-card p {
+    margin-top: 1rem;
+  }
+  
+  .login-card a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .login-card a:hover {
     text-decoration: underline;
-}
+  }
+  

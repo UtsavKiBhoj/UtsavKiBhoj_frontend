@@ -1,68 +1,80 @@
 /* Center the form and style it nicely */
 .signup-container {
-    margin: 0px;
-    padding: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f4f8; /* Light background color */
-  }
-  
-  .signup-card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-  }
-  
-  .signup-card h2 {
-    margin-bottom: 1.5rem;
-    font-family: 'Arial', sans-serif;
-    color: #333;
-  }
-  
-  /* Style input fields */
-  .input-field {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    background-color: #f9f9f9;
-    transition: background-color 0.3s ease;
-  }
-  
-  .input-field:focus {
-    background-color: #eef2f7;
-    outline: none;
-    border-color: #007bff; /* Blue outline on focus */
-  }
-  
-  /* Style the submit button */
-  .signup-button {
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .signup-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .message {
-    margin-top: 1rem;
-    color: #e63946;
-    font-weight: bold;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background-color: #f9f9f9; /* Updated to match UserProfile background color */
+}
+
+.signup-card {
+  background-color: white;
+  padding: 20px; /* Consistent padding */
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Updated shadow for consistency */
+  width: 100%;
+  max-width: 600px; /* Match UserProfile max-width */
+  text-align: center;
+}
+
+.signup-card h2 {
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+/* Style input fields */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box; /* Add consistent box-sizing */
+}
+
+.input-field:focus {
+  background-color: #eef2f7;
+  outline: none;
+  border-color: #007bff; /* Blue outline on focus */
+}
+
+/* Style the submit button */
+.signup-button {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-button:hover {
+  background-color: #0056b3;
+}
+
+.message {
+  margin-top: 1rem;
+  color: #e63946;
+  font-weight: bold;
+}
+
+/* Link styling */
+.signup-card p {
+  margin-top: 1rem;
+}
+
+.signup-card a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.signup-card a:hover {
+  text-decoration: underline;
+}
