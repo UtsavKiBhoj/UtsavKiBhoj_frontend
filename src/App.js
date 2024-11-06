@@ -14,9 +14,12 @@ import EventDetails from "./pages/eventsDetail/EventDetails";
 import EventsAllDetails from "./pages/eventsFullDetails/EventsAllDetails";
 import AboutUsNgo from "./pages/aboutUsNgo/aboutUsNgo";
 import NgoServices from "./pages/ngoServices/ngoServices";
+import EventLocationForm from "./pages/eventPages/eventLocationDetails/eventLocationForm";
+import { EventProvider } from "./components/context/EventContext";
 
 const App = () => {
   return (
+    <EventProvider>
     <Router>
       <Navbar />
       <Routes>
@@ -44,6 +47,10 @@ const App = () => {
           element={<PrivateRoute>{<EventDetailForm />}</PrivateRoute>}
         />
         <Route
+          path="/event/location-form/"
+          element={<PrivateRoute>{<EventLocationForm />}</PrivateRoute>}
+        />
+        <Route
           path="/event/"
           element={<PrivateRoute>{<EventDetails />}</PrivateRoute>}
         />
@@ -52,6 +59,7 @@ const App = () => {
       </Routes>
       <Footer />
     </Router>
+    </EventProvider>
   );
 };
 

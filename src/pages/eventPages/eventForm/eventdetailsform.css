@@ -1,43 +1,42 @@
 /* Container for the form */
 .event-detail-form {
     max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 40px auto; /* Center the form and add vertical spacing */
+    padding: 30px;
     background-color: #f9f9f9;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Form Title */
-  .event-title {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Form Title */
+.event-title {
     text-align: center;
-    align-items: center;
     color: #333;
     margin-bottom: 20px;
     font-size: 1.8em;
-  }
-  
-  .event-section-title {
+}
+
+/* Section Title */
+.event-section-title {
     text-align: center;
     margin-top: 20px;
     font-size: 1.4em;
-    align-items: center;
     color: #555;
     border-bottom: 2px solid #e0e0e0;
     padding-bottom: 10px;
-  }
-  
-  /* Form Labels */
-  .event-label {
+}
+
+/* Form Labels */
+.event-label {
     display: block;
     font-size: 1.1em;
     color: #333;
     margin-bottom: 8px;
-  }
-  
-  /* Input styles */
-  .event-input,
-  .event-textarea {
+}
+
+/* Input styles */
+.event-input,
+.event-textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -45,14 +44,14 @@
     border-radius: 4px;
     font-size: 1em;
     box-sizing: border-box;
-  }
-  
-  .event-textarea {
+}
+
+.event-textarea {
     resize: vertical;
-  }
-  
-  /* Button styling */
-  .event-button {
+}
+
+/* Button styling */
+.event-button {
     width: 100%;
     padding: 12px;
     background-color: #007bff;
@@ -62,34 +61,39 @@
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-  }
-  
-  .event-button:disabled {
+}
+
+.event-button:disabled {
     background-color: #aaa;
-  }
-  
-  .event-button:hover {
+}
+
+.event-button:hover {
     background-color: #0056b3;
-  }
-  
-  /* Error message */
-  .error-message {
+}
+
+/* Error message */
+.error-message {
     color: #ff4d4d;
     font-size: 1em;
     margin-top: 10px;
-  }
-  
-  /* Success message */
-  .success-message {
+}
+
+/* Success message */
+.success-message {
     color: #28a745;
     font-size: 1em;
     margin-top: 10px;
-  }
-  
-  /* Small screen (mobile) styling */
-  @media (max-width: 768px) {
+}
+
+/* Add margin at the top and bottom to separate from navbar and footer */
+.event-detail-form {
+    margin-top: 40px; /* Space from the navbar */
+    margin-bottom: 40px; /* Space from the footer */
+}
+
+/* Small screen (mobile) styling */
+@media (max-width: 768px) {
     .event-detail-form {
-      padding: 15px;
+        padding: 15px;
     }
-  }
-  
+}

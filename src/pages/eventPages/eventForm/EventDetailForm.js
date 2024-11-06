@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { createEvent, createLocation } from "../../../services/api";
+import { createEvent } from "../../../services/api";
 import "./eventdetailsform.css";
+import { useNavigate } from "react-router-dom";
+import { useEvent } from "../../../components/context/EventContext";
 
 const EventDetailForm = () => {
   const [eventData, setEventData] = useState({
@@ -9,30 +11,16 @@ const EventDetailForm = () => {
     date: "",
   });
 
-  console.log("eventData-----------------dd", eventData);
+  const navigate = useNavigate();
+  const { setEventId } = useEvent();
+
   // console.log("eventData-----------------dd", eventData);
-
-  const [locationDetails, setLocationDetails] = useState({
-    location_name: "",
-    address: "",
-    landmark: "",
-    pin_code: "",
-  });
-
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
   const handleEventChange = (e) => {
-    setEventData({...eventData, [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleLocationChange = (e) => {
-    setLocationDetails({
-      ...locationDetails,
-      [e.target.name]: e.target.value,
-    });
+    setEventData({ ...eventData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
@@ -40,31 +28,21 @@ const EventDetailForm = () => {
     setLoading(true);
     setErrorMessage("");
     setSuccessMessage("");
-
     try {
-      // Step 1: First, create the event
       const eventResponse = await createEvent(eventData);
-      console.log("eventData--eventDetailForm.js-------------", eventData)
-      console.log("Event eventResponse:-------------", eventResponse);
-
-      if (!eventResponse.event_id) {
-        throw new Error("Event creation failed. No event ID returned.");
+      if (eventResponse && eventResponse.event_id) {
+        setEventId(eventResponse.event_id);
+        setSuccessMessage("Event and location created successfully!");
+        navigate("/event/location-form/");
+      } else {
+        throw new Error("Invalid response from server");
       }
-
-      // Step 2: Now create the location, passing the event_id from the eventResponse
-      const locationData = {
-        ...locationDetails,
-        event: eventResponse.event_id, // Pass event_id to location API
-      };
-      const locationResponse = await createLocation(locationData);
-      console.log("Location created successfully:------------", locationResponse);
-
-      // Show success message
-      setSuccessMessage("Event and location created successfully!");
+      setLoading(false);
     } catch (error) {
-      // Handle errors
-      setErrorMessage(error.message || "An error occurred while creating the event and location.");
-      console.error("Error creating event and location:", error);
+      setErrorMessage(
+        error.message || "An error occurred while creating the event"
+      );
+      console.error("Error creating event:", error);
     } finally {
       setLoading(false);
     }
@@ -107,52 +85,6 @@ const EventDetailForm = () => {
             required
           />
         </label>
-
-        <h2 className="event-section-title">Event Location Details</h2>
-        <label className="event-label">
-          Location Name:
-          <input
-            type="text"
-            name="location_name"
-            className="event-input"
-            value={locationDetails.location_name}
-            onChange={handleLocationChange}
-            required
-          />
-        </label>
-        <label className="event-label">
-          Address:
-          <textarea
-            name="address"
-            className="event-textarea"
-            value={locationDetails.address}
-            onChange={handleLocationChange}
-            required
-          />
-        </label>
-        <label className="event-label">
-          Landmark:
-          <input
-            type="text"
-            name="landmark"
-            className="event-input"
-            value={locationDetails.landmark}
-            onChange={handleLocationChange}
-            required
-          />
-        </label>
-        <label className="event-label">
-          Pin Code:
-          <input
-            type="number"
-            name="pin_code"
-            className="event-input"
-            value={locationDetails.pin_code}
-            onChange={handleLocationChange}
-            required
-          />
-        </label>
-
         <button type="submit" className="event-button" disabled={loading}>
           {loading ? "Creating..." : "Create Event"}
         </button>
