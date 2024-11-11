@@ -15,7 +15,7 @@ const EventLocationForm = () => {
     address: "",
     landmark: "",
     pin_code: "",
-    event: eventId, // Initialize with event ID
+    event_id: eventId, // Initialize with event ID
   });
   console.log("locationDetails--------------33", locationDetails);
 

@@ -30,10 +30,12 @@ const EventDetailForm = () => {
     setSuccessMessage("");
     try {
       const eventResponse = await createEvent(eventData);
+      console.log("eventResponse---------------------------",eventResponse)
+      console.log("eventResponse---------------------------",eventResponse.event_id)
       if (eventResponse && eventResponse.event_id) {
         setEventId(eventResponse.event_id);
         setSuccessMessage("Event and location created successfully!");
-        navigate("/event/location-form/");
+        navigate("/event/location-details/");
       } else {
         throw new Error("Invalid response from server");
       }

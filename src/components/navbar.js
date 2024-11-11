@@ -45,7 +45,7 @@ const Navbar = () => {
   };
   const handleEventsList = () => {
     if (isLoggedIn) {
-      navigate("/event");
+      navigate("/events");
     } else {
       navigate("/login");
     }

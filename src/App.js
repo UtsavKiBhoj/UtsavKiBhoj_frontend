@@ -50,11 +50,11 @@ const App = () => {
             element={<PrivateRoute>{<EventDetailForm />}</PrivateRoute>}
           />
           <Route
-            path="/event/location-form/"
+            path="/event/location-details/"
             element={<PrivateRoute>{<EventLocationForm />}</PrivateRoute>}
           />
           <Route
-            path="/event/"
+            path="/events/"
             element={<PrivateRoute>{<EventDetails />}</PrivateRoute>}
           />
           <Route

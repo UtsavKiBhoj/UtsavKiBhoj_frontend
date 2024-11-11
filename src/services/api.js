@@ -191,7 +191,7 @@ export const createLocation = async (locationData) => {
       },
     };
     const response = await api.post(
-      "event/event-locations/",
+      "event/location-details/",
       locationData,
       config,
       {

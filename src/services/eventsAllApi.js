@@ -20,7 +20,7 @@ export const fetchEventById = async (id) => {
         Authorization: `Bearer ${accessToken}`,
       },
     };
-    const response = await api.get(`event/details/${id}`, config);
+    const response = await api.get(`event/detail/${id}`, config);
     if (response.status !== 200) {
       throw new Error("Event not found");
     }
