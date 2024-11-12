@@ -79,20 +79,22 @@
   }
   
   .user-profile-container .update-button {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #0056b3;
+    color: white;
     margin-right: 10px;
   }
   
   .user-profile-container .update-button:hover {
-    background-color: #0056b3;
+    background-color: #5f8ab9;
+    color: white;
   }
   
   .user-profile-container .delete-button {
-    background-color: #dc3545;
-    color: #fff;
+    background-color: #c82333;
+    color: white;
   }
   
   .user-profile-container .delete-button:hover {
-    background-color: #c82333;
+    background-color: #bb4854;
+    color: white;
   }

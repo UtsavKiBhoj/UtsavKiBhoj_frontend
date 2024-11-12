@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Modal from "react-modal";
-import { fetchEventById } from "../../services/eventsAllApi";
+import { fetchEventById, deleteEventById } from "../../services/eventsAllApi";
 import "./eventsAllDetails.css";
-
+import { useNavigate } from "react-router-dom";
 
 const EventsAllDetails = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [updatedEvent, setUpdatedEvent] = useState({});
+  const [deleteEvent, setDeleteEvent] = useState({});
 
   useEffect(() => {
     const fetchEventDetails = async () => {
@@ -21,6 +23,7 @@ const EventsAllDetails = () => {
         if (response) {
           setEvent(response);
           setUpdatedEvent(response);
+          setDeleteEvent(response);
         } else {
           setError("Event data not found.");
         }
@@ -40,6 +43,19 @@ const EventsAllDetails = () => {
 
   const handleModalClose = () => {
     setIsModalOpen(false);
+  };
+
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    try {
+      console.log(id)
+      await deleteEventById(id);
+      alert("Event deleted successfully.");
+      navigate("/events"); // Redirect to the event list page
+    } catch (error) {
+      console.error("Error deleting event:", error);
+      setError("Failed to delete event.");
+    }
   };
 
   const handleInputChange = (e) => {
@@ -62,7 +78,6 @@ const EventsAllDetails = () => {
     // }
   };
 
-
   if (loading) {
     return <div className="loading">Loading event details...</div>;
   }
@@ -79,9 +94,6 @@ const EventsAllDetails = () => {
     <div className="event-detail-page">
       <div className="event-container">
         <h1 className="event-title">{event.event_name}</h1>
-        <button onClick={handleEditButtonClick} className="edit-button">
-          Edit
-        </button>
         <div className="event-details">
           <p>
             <strong>Date:</strong> {new Date(event.date).toLocaleDateString()}
@@ -102,10 +114,22 @@ const EventsAllDetails = () => {
             <strong>Phone:</strong> {event.organizer.phone}
           </p>
         </div>
+        <div className="button-container">
+          <button type="button" className="btn btn-update" onClick={handleEditButtonClick}>
+            Update
+          </button>
+          <button type="button" className="btn btn-delete" onClick={handleDelete}>
+            Delete
+          </button>
+        </div>
       </div>
 
       {/* Update details Model  */}
-      <Modal isOpen={isModalOpen} onRequestClose={handleModalClose} className="modal">
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={handleModalClose}
+        className="modal"
+      >
         <h2>Edit Event</h2>
         <form onSubmit={handleFormSubmit}>
           <label>
@@ -170,8 +194,16 @@ const EventsAllDetails = () => {
               onChange={handleInputChange}
             />
           </label>
-          <button type="submit" className="btn btn-save">Save Changes</button>
-          <button type="button" className="btn btn-cancel" onClick={handleModalClose}>Cancel</button>
+          <button type="submit" className="btn btn-save">
+            Save Changes
+          </button>
+          <button
+            type="button"
+            className="btn btn-cancel"
+            onClick={handleModalClose}
+          >
+            Cancel
+          </button>
         </form>
       </Modal>
     </div>

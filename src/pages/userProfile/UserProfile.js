@@ -18,7 +18,6 @@ const UserProfile = () => {
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
-
       // Fetch user data and update state
       const getUserData = async () => {
         try {

@@ -1,70 +1,67 @@
-/* eventdetailpage.css */
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
 
 .event-detail-page {
-  background-color: #f4f7fa;
-  padding: 60px 20px;
+  padding: 40px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .event-container {
-  background-color: #fff;
+  background: linear-gradient(145deg, #ffffff, #f3f3f3);
   border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  padding: 40px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
   max-width: 500px;
-  width: 80%;
-  height: 85%;
+  width: 90%;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .event-container:hover {
-  transform: translateY(-5px);
+  transform: scale(1.02);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .event-title {
-  font-size: 2.4rem;
-  color: #333;
-  text-align: center;
+  font-size: 2rem;
+  color: #030303;
   font-weight: bold;
-  margin-bottom: 30px;
-  letter-spacing: 1px;
+  margin-bottom: 20px;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .event-details {
-  line-height: 1.8;
-  color: #555;
-  font-size: 1.1rem;
-  height: 60%;
+  text-align: left;
+  margin-top: 20px;
 }
 
 .event-details p {
-  margin: 15px 0;
-  font-size: 1.15rem;
+  margin: 10px 0;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .event-details strong {
-  color: #333;
+  color: #000000;
   font-weight: bold;
-}
-
-.event-details p:not(:first-child) {
-  border-top: 1px solid #eee;
-  padding-top: 10px;
 }
 
 .loading,
 .error,
 .no-event {
-  font-size: 1.4rem;
-  color: #555;
+  font-size: 1.2rem;
   text-align: center;
-  font-weight: 500;
   padding: 20px;
 }
 
@@ -74,184 +71,245 @@
 
 .error {
   color: #f44336;
-  font-size: 1.6rem;
+  font-weight: bold;
 }
 
 .no-event {
-  color: #9e9e9e;
+  color: #757575;
 }
 
-.event-container p,
-.event-container h1 {
-  margin: 10px 0;
+/* Container for the buttons */
+.button-container {
+  display: flex;
+  justify-content: center; /* Centers the buttons horizontally */
+  align-items: center;    /* Centers the buttons vertically */
+  gap: 5px;
+  width: 200px;
+  margin: auto;
 }
 
-/* For mobile responsiveness */
-@media screen and (max-width: 768px) {
-  .event-container {
-    padding: 25px;
-  }
-
-  .event-title {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-
-  .event-details p {
-    font-size: 1rem;
-  }
-}
-
-/* Model css starts here */
-.modal {
-    position: fixed;
-    top: 50%;
-    display: block;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 50px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-    width: 50%;
-    max-width: 550px;
-    height: 80%;
-    
-}
-
-.modal label {
-  display: block;
-  margin-bottom: 8px;
-}
-
-.modal input, .modal textarea {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 12px;
-}
-
-.edit-button {
-  margin-top: 10px;
-  cursor: pointer;
-  width: 10%;
-  margin-left: 90%;
-}
-
-/* For tablets and smaller screens */
-@media screen and (max-width: 768px) {
-  .event-detail-page {
-    padding: 40px 15px;
-  }
-
-  .event-container {
-    width: 90%;
-    padding: 20px;
-    height: auto;
-    max-height: 90%;
-  }
-
-  .event-title {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-  }
-
-  .event-details {
-    font-size: 1rem;
-  }
-
-  .event-details p {
-    font-size: 1rem;
-  }
-
-  .modal {
-    width: 90%;
-    padding: 25px;
-    max-height: 90%;
-  }
-
-  .edit-button {
-    width: 15%;
-    margin-left: 85%;
-  }
-}
-
-/* For mobile screens */
-@media screen and (max-width: 480px) {
-  .event-detail-page {
-    padding: 30px 10px;
-  }
-
-  .event-container {
-    width: 95%;
-    padding: 15px;
-    height: auto;
-  }
-
-  .event-title {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-  }
-
-  .event-details {
-    font-size: 0.9rem;
-  }
-
-  .event-details p {
-    font-size: 0.9rem;
-  }
-
-  .modal {
-    width: 90%;
-    padding: 20px;
-    max-height: 80%;
-  }
-
-  .edit-button {
-    width: 20%;
-    margin-left: 80%;
-  }
-}
-
-/* Base styles for both buttons */
+/* Base button styles */
 .btn {
-  padding: 10px 20px;
+  padding: 12px 24px;
   font-size: 1rem;
   font-weight: 500;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  margin-left: 27%;
+  transition: all 0.3s ease;
 }
 
-/* Save Changes button */
+/* Update button styles */
+.btn-update {
+  background-color: #28a745; /* Green for update */
+  color: white;
+}
+
+.btn-update:hover {
+  background-color: #218838; /* Darker green on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Delete button styles */
+.btn-delete {
+  background-color: #dc3545; /* Red for delete */
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #c82333; /* Darker red on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+
+/* Modal Styles */
+/* Modal Background Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+  z-index: 999; /* Ensure it overlays all other elements */
+}
+
+/* Modal Container */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 450px;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Modal Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Modal Header */
+.modal h2 {
+  color: #333333;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Input and Textarea Styles */
+.modal label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #666666;
+}
+
+.modal input,
+.modal textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.modal input:focus,
+.modal textarea:focus {
+  border-color: #4caf50;
+  outline: none;
+  background-color: #ffffff;
+}
+
+/* Responsive Textarea */
+.modal textarea {
+  resize: none;
+  height: 100px;
+}
+
+/* Buttons */
+.btn {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  width: calc(50% - 10px); /* Ensures buttons are responsive and side-by-side */
+  text-align: center;
+}
+
 .btn-save {
-  background-color: #1c29c2;
-  color: #fff;
+  background-color: #4caf50;
+  color: white;
+  margin-right: 10px;
 }
 
 .btn-save:hover {
-  background-color: #4952d7;
-  transform: translateY(-2px);
+  background-color: #45a049;
+  transform: scale(1.03);
 }
 
-/* Cancel button */
 .btn-cancel {
-  background-color: #ffffff;
-  color: #121212;
-  margin-left: 10px;
+  background-color: #f44336;
+  color: white;
 }
 
 .btn-cancel:hover {
-  background-color: #dc0b0b;
-  transform: translateY(-2px);
+  background-color: #e53935;
+  transform: scale(1.03);
 }
 
-/* Responsive adjustments for mobile */
-@media screen and (max-width: 480px) {
+/* Responsive Design */
+@media (max-width: 600px) {
+  .modal {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .modal h2 {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    width: 100%; /* Stack buttons for smaller screens */
+    margin-bottom: 10px;
+  }
+
+  .btn-save {
+    margin-right: 0;
+  }
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .event-container {
+    padding: 20px;
+  }
+
+  .event-title {
+    font-size: 1.8rem;
+  }
+
+  .event-details p {
+    font-size: 0.95rem;
+  }
+
+  .modal {
+    padding: 20px;
+  }
+
   .btn {
     padding: 8px 16px;
     font-size: 0.9rem;
   }
 }
 
+@media (max-width: 480px) {
+  .event-container {
+    padding: 15px;
+  }
+
+  .event-title {
+    font-size: 1.5rem;
+  }
+
+  .event-details p {
+    font-size: 0.85rem;
+  }
+
+  .modal {
+    padding: 15px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+}
