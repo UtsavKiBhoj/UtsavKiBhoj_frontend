@@ -13,6 +13,7 @@ const EventDetails = () => {
     const fetchEvents = async () => {
       try {
         const response = await fetchEventsList();
+        // console.log("---------------------------", response);
         setEvents(response);
         setLoading(false);
       } catch (err) {
@@ -50,7 +51,17 @@ const EventDetails = () => {
           <li key={event.event_id} className="event-item">
             <h2>{event.event_name}</h2>
             <p>
-              <strong>Location:</strong> {event.location_name}
+              <strong>Location:</strong>
+              {event.location_name && event.location_name.length > 0 ? (
+                event.location_name.map((location, index) => (
+                  <div key={location.location_id}>
+                    {location.location_name}{" "}
+                    {index < event.location_name.length - 1 && ", "}
+                  </div>
+                ))
+              ) : (
+                <div> Location Not available</div>
+              )}
             </p>
             <p>
               <strong>Date:</strong> {new Date(event.date).toLocaleDateString()}

@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import { fetchEventById, deleteEventById } from "../../services/eventsAllApi";
 import "./eventsAllDetails.css";
 import { useNavigate } from "react-router-dom";
+import EventDetailUpdateModel from "./EventDetailUpdateModel";
 
 const EventsAllDetails = () => {
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ const EventsAllDetails = () => {
   const handleDelete = async (e) => {
     e.preventDefault();
     try {
-      console.log(id)
+      console.log(id);
       await deleteEventById(id);
       alert("Event deleted successfully.");
       navigate("/events"); // Redirect to the event list page
@@ -98,9 +99,19 @@ const EventsAllDetails = () => {
           <p>
             <strong>Date:</strong> {new Date(event.date).toLocaleDateString()}
           </p>
-          <p>
-            <strong>Location:</strong> {event.address}
-          </p>
+          {event.location_name && event.location_name.length > 0 ? (
+            event.location_name.map((location) => (
+              <div key={location.location_id} className="event-location">
+                <p><strong>Location Name:</strong> {location.location_name}</p>
+                <p><strong>Address:</strong> {location.address}</p>
+                <p><strong>Pin Code:</strong> {location.pin_code}</p>
+                <p><strong>Landmark:</strong> {location.landmark}</p>
+              </div>
+            ))
+          ) : (
+            <p>No location information available.</p>
+          )}
+          
           <p>
             <strong>Description:</strong> {event.description}
           </p>
@@ -115,97 +126,31 @@ const EventsAllDetails = () => {
           </p>
         </div>
         <div className="button-container">
-          <button type="button" className="btn btn-update" onClick={handleEditButtonClick}>
+          <button
+            type="button"
+            className="btn btn-update"
+            onClick={handleEditButtonClick}
+          >
             Update
           </button>
-          <button type="button" className="btn btn-delete" onClick={handleDelete}>
+          <button
+            type="button"
+            className="btn btn-delete"
+            onClick={handleDelete}
+          >
             Delete
           </button>
         </div>
       </div>
 
       {/* Update details Model  */}
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={handleModalClose}
-        className="modal"
-      >
-        <h2>Edit Event</h2>
-        <form onSubmit={handleFormSubmit}>
-          <label>
-            Event Name:
-            <input
-              type="text"
-              name="event_name"
-              value={updatedEvent.event_name || ""}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Date:
-            <input
-              type="date"
-              name="date"
-              value={updatedEvent.date || ""}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Location:
-            <input
-              type="text"
-              name="address"
-              value={updatedEvent.address || ""}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Description:
-            <textarea
-              name="description"
-              value={updatedEvent.description || ""}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Organizer Name:
-            <input
-              type="text"
-              name="organizer_name"
-              value={updatedEvent.organizer?.name || ""}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Organizer Email:
-            <input
-              type="email"
-              name="organizer_email"
-              value={updatedEvent.organizer?.email || ""}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Phone:
-            <input
-              type="tel"
-              name="organizer_phone"
-              value={updatedEvent.organizer?.phone || ""}
-              onChange={handleInputChange}
-            />
-          </label>
-          <button type="submit" className="btn btn-save">
-            Save Changes
-          </button>
-          <button
-            type="button"
-            className="btn btn-cancel"
-            onClick={handleModalClose}
-          >
-            Cancel
-          </button>
-        </form>
-      </Modal>
+      <EventDetailUpdateModel
+        isModalOpen={isModalOpen}
+        handleModalClose={handleModalClose}
+        updatedEvent={updatedEvent}
+        handleInputChange={handleInputChange}
+        handleFormSubmit={handleFormSubmit}
+      />
     </div>
   );
 };

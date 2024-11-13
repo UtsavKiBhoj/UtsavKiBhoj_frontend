@@ -6,18 +6,14 @@ import { useEvent } from "../../../components/context/EventContext";
 const EventLocationForm = () => {
   // Get event ID from useContext state
   const { eventId } = useEvent();
-  console.log("eventId in location------------------------", eventId);
-
-  console.log("eventId-------------------33 ", eventId);
 
   const [locationDetails, setLocationDetails] = useState({
     location_name: "",
     address: "",
     landmark: "",
     pin_code: "",
-    event_id: eventId, // Initialize with event ID
+    event: eventId, // Initialize with event ID
   });
-  console.log("locationDetails--------------33", locationDetails);
 
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -35,7 +31,7 @@ const EventLocationForm = () => {
 
     try {
       const locationResponse = await createLocation(locationDetails);
-      setSuccessMessage("Location created successfully!");
+      setSuccessMessage("Event location added successfully!");
       console.log("Location created:", locationResponse);
     } catch (error) {
       setErrorMessage(
