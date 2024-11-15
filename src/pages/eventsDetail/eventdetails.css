@@ -92,7 +92,7 @@
 .event-container {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Space between event details */
+  /* gap: 20px; Space between event details */
   background-color: #fff;
   padding: 25px; /* Reduced padding for smaller containers */
   border-radius: 8px;
@@ -105,8 +105,31 @@
 }
 
 .event-container strong {
-  color: #007bff;
+  color: #000000;
 }
+
+  /* filters css */
+  .filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 12%;
+  }
+
+  .no-data-message{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: dimgrey;
+  }
 
 /* Responsive Styles */
 @media (max-width: 768px) {

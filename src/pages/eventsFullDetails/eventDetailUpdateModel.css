@@ -1,0 +1,140 @@
+/* Modal container */
+.modal {
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Center the modal horizontally */
+    width: 90%;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 30px;
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    z-index: 9999; /* Ensure modal is above other elements */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Title */
+  .modal h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Form Fields */
+  .form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Input Fields */
+  .form-fields input,
+  .form-fields textarea {
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .form-fields input:focus,
+  .form-fields textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Input & Textarea Labels */
+  .form-fields label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  /* Button Group */
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .button-group .btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    width: 48%; /* Ensure buttons are side by side */
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-save {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .btn-save:hover {
+    background-color: #218838;
+  }
+  
+  .btn-cancel {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .btn-cancel:hover {
+    background-color: #c82333;
+  }
+  
+  /* Responsiveness */
+  @media screen and (max-width: 768px) {
+    .modal {
+      width: 90%;
+      padding: 20px;
+      margin-top: 30px;
+    }
+  
+    .form-fields {
+      gap: 18px;
+    }
+  
+    .button-group {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .button-group .btn {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .modal {
+      width: 95%;
+      padding: 15px;
+      margin-top: 20px;
+    }
+  
+    .modal h2 {
+      font-size: 24px;
+    }
+  
+    .form-fields input,
+    .form-fields textarea {
+      font-size: 14px;
+    }
+  
+    .button-group .btn {
+      font-size: 14px;
+    }
+  }
+  

@@ -7,6 +7,11 @@ const EventDetails = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [filteredEvents, setFilteredEvents] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [noDataMessage, setNoDataMessage] = useState("");
+
+  console.log("-------------------------99",events)
 
   // useEffect to fetch the list of events when the component is mounted
   useEffect(() => {
@@ -15,15 +20,36 @@ const EventDetails = () => {
         const response = await fetchEventsList();
         // console.log("---------------------------", response);
         setEvents(response);
+        setFilteredEvents(response);
         setLoading(false);
       } catch (err) {
         setError("Failed to fetch events.");
         setLoading(false);
       }
     };
-
     fetchEvents();
   }, []);
+
+  // Filter events based on the search term
+  const handleSearch = (e) => {
+    const term = e.target.value.toLowerCase();
+    setSearchTerm(term);
+
+    const filtered = events.filter(
+      (event) =>
+        event.event_name.toLowerCase().includes(term) || // Search by event name
+        event.location_name?.some((location) =>
+          location.location_name.toLowerCase().includes(term)
+        ) || // Search by location
+        event.organizer?.name.toLowerCase().includes(term) || // Search by organizer name
+        event.organizer?.phone.toLowerCase().includes(term) || // Search by phone
+        event.organizer?.address.toLowerCase().includes(term) || // Search by address
+        event.organizer?.email.includes(term) // Search by email
+  );
+
+    setFilteredEvents(filtered);
+    setNoDataMessage(filtered.length === 0 ? "Oops! No data found." : "");
+  };
 
   if (loading) {
     return <div className="loading">Loading events...</div>;
@@ -33,21 +59,25 @@ const EventDetails = () => {
     return <div className="error">{error}</div>;
   }
 
-  if (events.length === 0) {
-    return (
-      <div className="no-events">
-        <h2>No Events Found</h2>
-        <p>It seems there are no events available at the moment.</p>
-        <p>Please check back later!</p>
-      </div>
-    );
-  }
-
   return (
     <div className="event-details">
       <h1>All Events</h1>
+      {/* Search and Filter Section */}
+      <div className="filters">
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Search events..."
+            value={searchTerm}
+            onChange={handleSearch}
+          />
+        </div>
+      </div>
+        {noDataMessage && (
+          <div className="no-data-message">{noDataMessage}</div>
+        )}
       <ul>
-        {events.map((event) => (
+        {filteredEvents.map((event) => (
           <li key={event.event_id} className="event-item">
             <h2>{event.event_name}</h2>
             <p>

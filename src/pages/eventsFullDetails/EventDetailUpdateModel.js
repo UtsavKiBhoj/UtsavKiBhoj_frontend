@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
-import "./eventsAllDetails.css";
+import "./eventDetailUpdateModel.css";
 
 const EventDetailUpdateModel = ({
   isModalOpen,
@@ -16,7 +16,7 @@ const EventDetailUpdateModel = ({
       className="modal"
     >
       <h2>Edit Event</h2>
-      <form onSubmit={handleFormSubmit} className="form-fields">
+      <form onSubmit={handleFormSubmit} className="form-fields" aria-labelledby="form-title">
         <label>
           Event Name:
           <input
@@ -24,6 +24,7 @@ const EventDetailUpdateModel = ({
             name="event_name"
             value={updatedEvent.event_name || ""}
             onChange={handleInputChange}
+            aria-label="Event Name"
           />
         </label>
         <label>
@@ -33,6 +34,7 @@ const EventDetailUpdateModel = ({
             name="date"
             value={updatedEvent.date || ""}
             onChange={handleInputChange}
+            aria-label="Event Date"
           />
         </label>
         <label>
