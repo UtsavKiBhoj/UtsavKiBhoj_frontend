@@ -11,7 +11,7 @@ const EventDetails = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [noDataMessage, setNoDataMessage] = useState("");
 
-  console.log("-------------------------99",events)
+  // console.log("-------------------------99",events)
 
   // useEffect to fetch the list of events when the component is mounted
   useEffect(() => {

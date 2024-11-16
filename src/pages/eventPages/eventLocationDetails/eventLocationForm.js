@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { createLocation } from "../../../services/api";
 import "../eventForm/eventdetailsform.css";
 import { useEvent } from "../../../components/context/EventContext";
+import { useNavigate } from "react-router-dom";
 
 const EventLocationForm = () => {
   // Get event ID from useContext state
@@ -14,6 +15,8 @@ const EventLocationForm = () => {
     pin_code: "",
     event: eventId, // Initialize with event ID
   });
+
+  const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -33,6 +36,7 @@ const EventLocationForm = () => {
       const locationResponse = await createLocation(locationDetails);
       setSuccessMessage("Event location added successfully!");
       console.log("Location created:", locationResponse);
+      navigate("/events")
     } catch (error) {
       setErrorMessage(
         error.message || "An error occurred while creating the location."

@@ -39,10 +39,6 @@ export const deleteEventById = async (id) => {
   console.log("deleteEventById----------id-------",id)
   try {
     const accessToken = localStorage.getItem("accessToken");
-    // Extract user_id from token payload
-    // const decodedToken = jwtDecode(accessToken);
-    // const eventId = decodedToken.event_id;
-    // Set the Authorization header
     const config = {
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -53,6 +49,26 @@ export const deleteEventById = async (id) => {
     return response.data;
   } catch (error) {
     console.error("Error deleting event:", JSON.stringify(error, null, 2));
+    throw error.response ? error.response.data : { message: "Network error" };
+  }
+};
+
+
+export const updateEventById = async (id, updatedEventData) => {
+  console.log("updateEventById-----------------",id)
+  console.log("updatedEventData-----------------",updatedEventData)
+  try {
+    const accessToken = localStorage.getItem("accessToken");
+    const config = {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    };
+    const response = await api.put(`event/update/${id}/`, updatedEventData , config);
+    console.log("event Update response----------",response)
+    return response.data;
+  } catch (error) {
+    console.error("Error Updating event:", JSON.stringify(error, null, 2));
     throw error.response ? error.response.data : { message: "Network error" };
   }
 };

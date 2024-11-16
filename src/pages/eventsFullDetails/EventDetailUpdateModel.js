@@ -16,7 +16,11 @@ const EventDetailUpdateModel = ({
       className="modal"
     >
       <h2>Edit Event</h2>
-      <form onSubmit={handleFormSubmit} className="form-fields" aria-labelledby="form-title">
+      <form
+        onSubmit={handleFormSubmit}
+        className="form-fields"
+        aria-labelledby="form-title"
+      >
         <label>
           Event Name:
           <input
@@ -26,6 +30,7 @@ const EventDetailUpdateModel = ({
             onChange={handleInputChange}
             aria-label="Event Name"
           />
+          {console.log("updatedEvent-----------------------6666", updatedEvent)}
         </label>
         <label>
           Date:

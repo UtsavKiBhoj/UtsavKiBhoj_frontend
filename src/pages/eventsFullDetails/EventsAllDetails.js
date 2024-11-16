@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Modal from "react-modal";
-import { fetchEventById, deleteEventById } from "../../services/eventsAllApi";
+import { fetchEventById, deleteEventById, updateEventById } from "../../services/eventsAllApi";
 import "./eventsAllDetails.css";
 import { useNavigate } from "react-router-dom";
 import EventDetailUpdateModel from "./EventDetailUpdateModel";
@@ -61,22 +60,46 @@ const EventsAllDetails = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setUpdatedEvent({ ...updatedEvent, [name]: value });
+  
+    if (name.startsWith("organizer_")) {
+      // For nested fields in the organizer object
+      const key = name.split("_")[1];
+      setUpdatedEvent((prevState) => ({
+        ...prevState,
+        organizer: {
+          ...prevState.organizer,
+          [key]: value,
+        },
+      }));
+    } else if (name === "location_name") {
+      // Handle location_name as a simple string
+      setUpdatedEvent((prevState) => ({
+        ...prevState,
+        location_name: value,
+      }));
+    } else {
+      // For other fields
+      setUpdatedEvent((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
+    }
   };
+  
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // try {
-    //   const response = await updateEventById(id, updatedEvent);
-    //   if (response) {
-    //     setEvent(response);
-    //     setIsModalOpen(false);
-    //   } else {
-    //     setError("Failed to update event.");
-    //   }
-    // } catch (err) {
-    //   setError("Failed to update event.");
-    // }
+    try {
+      const response = await updateEventById(id, updatedEvent);
+      if (response) {
+        setEvent(response);
+        setIsModalOpen(false);
+      } else {
+        setError("Failed to update event.");
+      }
+    } catch (err) {
+      setError("Failed to update event.");
+    }
   };
 
   if (loading) {
